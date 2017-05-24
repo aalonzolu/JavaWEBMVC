@@ -11,10 +11,10 @@
       <h1>Registro de usuarios</h1>
       <b><%if (request.getParameter("error") != null) {out.println(request.getParameter("error"));} %></b>
     <form class="login-form" action="SignUp" method="post">
-      <input type="text" name="name" placeholder="Nombre completo"/>
-      <input type="text" name="user" placeholder="Usuario"/>
-      <input type="password" name="pass" placeholder="Contraseña"/>
-      <input type="password" name="confirmpass" placeholder="Repetir contraseña"/>
+      <input type="text" name="name" placeholder="Nombre completo" required/>
+      <input type="text" name="user" placeholder="Usuario" required/>
+      <input type="password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" title="Su contraseña debe tener por lo menos una mayuscula, una minuscula, un numero y la sangre de una virgen." name="pass" placeholder="Contraseña" required/>
+      <input type="password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" title="Su contraseña debe tener por lo menos una mayuscula, una minuscula, un numero y la sangre de una virgen." name="confirmpass" placeholder="Repetir contraseña" required/>
       <button ype="submit"  name="Entrar" id="Entrar">Registro</button>
       <p class="message"><a href="login.jsp">Entrar</a></p>
     </form>
