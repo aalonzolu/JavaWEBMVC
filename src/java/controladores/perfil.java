@@ -1,7 +1,10 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package controladores;
 
-import modelos.ConsultasUser;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -9,13 +12,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;  
 
 /**
  *
  * @author lexo
  */
-@WebServlet(name = "Registro", urlPatterns = {"/SignUp"})
-public class Registro extends HttpServlet {
+@WebServlet(name = "perfil", urlPatterns = {"/perfil"})
+public class perfil extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,26 +33,14 @@ public class Registro extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String name = request.getParameter("name");
-        String username = request.getParameter("user");
-        String pass = request.getParameter("pass");
-        String pass2 = request.getParameter("confirmpass");
-        System.out.println(username + " " + pass);
-        if(!username.isEmpty() && !pass.isEmpty() && !pass2.isEmpty() && !name.isEmpty()){
-            if(!pass.equals(pass2)){
-                response.sendRedirect("registro.jsp?error=Confirmación incorrecta");
-            }
-            else {
-                ConsultasUser consuser = new ConsultasUser();
-                consuser.registro(username, pass,name);
-                response.sendRedirect("login.jsp?user="+username);
-            }
+        try (PrintWriter out = response.getWriter()) {
+            HttpSession session=request.getSession(false);  
+            if(session!=null){  
+        String name=(String)session.getAttribute("name");  
+          
+        out.print("Hello, "+name+" Welcome to Profile");  
+        }  
         }
-        else {
-            response.sendRedirect("registro.jsp?error=Rellene todos los datos");
-        }
-        
-        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -91,4 +83,3 @@ public class Registro extends HttpServlet {
     }// </editor-fold>
 
 }
-

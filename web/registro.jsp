@@ -11,6 +11,7 @@
       <h1>Registro de usuarios</h1>
       <b><%if (request.getParameter("error") != null) {out.println(request.getParameter("error"));} %></b>
     <form class="login-form" action="SignUp" method="post">
+      <input type="text" name="name" placeholder="Nombre completo"/>
       <input type="text" name="user" placeholder="Usuario"/>
       <input type="password" name="pass" placeholder="Contraseña"/>
       <input type="password" name="confirmpass" placeholder="Repetir contraseña"/>

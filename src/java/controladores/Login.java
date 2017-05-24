@@ -12,7 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import javax.servlet.http.HttpSession;  
 /**
  *
  * @author lexo
@@ -36,14 +36,19 @@ public class Login extends HttpServlet {
         String pass = request.getParameter("pass");
         System.out.println(username + " " + pass);
         if(!username.isEmpty() && !pass.isEmpty()){
-            if(true){
-                ConsultasUser consuser = new ConsultasUser();
-                //consuser.registro(username, pass);
+            ConsultasUser consuser = new ConsultasUser();
+            // consultar si existe el usuario
+            String res = consuser.login(username,pass);
+            if(!res.isEmpty()){
+                HttpSession session=request.getSession();  
+                session.setAttribute("name",res);
+                session.setAttribute("username",username);
+                session.setAttribute("pass",pass);
                 response.sendRedirect("home.jsp?user="+username);
             }
             else {
-                response.sendRedirect("login.jsp?error=Contraseña incorrecta");
-            }
+                response.sendRedirect("login.jsp?error=Datos incorrectos");
+            }   
         }
         else {
             response.sendRedirect("login.jsp?error=Rellene todos los datos");

@@ -5,6 +5,7 @@
  */
 package modelos;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -14,12 +15,12 @@ import java.sql.Statement;
  */
 public class ConsultasUser extends Conexion {
 
-    public int registro(String username, String password) {
+    public int registro(String username, String password,String name) {
         int filas = 0;
         Statement st = null;
         try {
             st = connection.createStatement();
-            String consultaSQL = "insert into User(username, password) values " + "('" + username + "', '" + password + "')";
+            String consultaSQL = "insert into User(username, password,name) values " + "('" + username + "', '" + password + "', '" + name + "')";
             filas = st.executeUpdate(consultaSQL);
         } catch (SQLException e) {
             System.err.println("Error en la carga del driver: " + e.getMessage());
@@ -40,5 +41,33 @@ public class ConsultasUser extends Conexion {
             }
         }
         return filas;
+    }
+    public String login(String username, String password){
+        int filas = 0;
+        Statement st = null;
+        ResultSet resultSet = null;
+        String resName = "";
+        try {
+            st = connection.createStatement();
+            String consultaSQL = "SELECT * FROM User WHERE username='" + username + "' AND password='" + password + "';";
+            // Result set get the result of the SQL query
+            resultSet = st.executeQuery(consultaSQL);
+            //Contar los resultados
+            int rowcount = 0;
+            if (resultSet.last()) {
+              rowcount = resultSet.getRow();
+              resultSet.beforeFirst(); // regresar al primero
+            }
+            if(rowcount>=1){
+                // se encontraron registros y se setea el nombre
+                while (resultSet.next()) {
+                    resName = resultSet.getString("name");
+                }
+            }
+            
+        } catch (SQLException e) {
+            System.err.println("Ha ocurrido un error: " + e.getMessage());
+        }
+        return resName;
     }
 }
