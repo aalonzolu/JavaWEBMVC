@@ -38,7 +38,7 @@ public class Login extends HttpServlet {
         if(!username.isEmpty() && !pass.isEmpty()){
             if(true){
                 ConsultasUser consuser = new ConsultasUser();
-                consuser.registro(username, pass);
+                //consuser.registro(username, pass);
                 response.sendRedirect("home.jsp?user="+username);
             }
             else {
