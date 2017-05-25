@@ -16,8 +16,8 @@ import java.sql.SQLException;
 public class Conexion {
 
     public static final String USERNAME = "root";
-    public static final String PASSWORD = "root";
-    public static final String HOST = "192.168.33.10";
+    public static final String PASSWORD = "";
+    public static final String HOST = "127.0.0.1";
     public static final String PORT = "3306";
     public static final String DATABASE = "inventario";
     public static final String CLASSNAME = "com.mysql.jdbc.Driver";
