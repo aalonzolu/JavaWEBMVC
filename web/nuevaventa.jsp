@@ -7,18 +7,18 @@
 <%@ page session="true" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file='templates/header_user.html'%>
-<h1>Nuevo Proveedor</h1>
+<h1>Nueva Venta</h1>
 <form action="" method="post">
   <div class="form-group" >
     <label for="correlativo">Correlativo de la venta: </label>
     <input type="text" name="correlativo" class="form-control" id="correlativo">
   </div>
   <div class="form-group">
-    <label for="id_producto">Id del producto: </label>
+    <label for="id_producto">Producto: </label>
     <input type="int" name="nombre_proveedor" class="form-control" id="id_producto">
   </div>
   <div class="form-group">
-    <label for="id_bodega">Id de Bodega: </label>
+    <label for="id_bodega">Bodega: </label>
     <input type="number" name="id_bodega" class="form-control" id="id_bodega">
   </div>
     
@@ -35,7 +35,7 @@
     <input type="number" name="precio_compra" class="form-control" id="precio_compra">
   </div>
      <div class="form-group">
-    <label for="id_cliente">Id del Cliente: </label>
+    <label for="id_cliente">Cliente: </label>
     <input type="number" name="id_cliente" class="form-control" id="id_cliente">
   </div>
      <div class="form-group">
@@ -47,7 +47,7 @@
     <input type="date" name="fecha" class="form-control" id="fecha">
   </div>
      <div class="form-group">
-    <label for="id_usuario">Id del usuario: </label>
+    <label for="id_usuario">Usuario: </label>
     <input type="number" name="id_usuario" class="form-control" id="id_usuario">
   </div>
   

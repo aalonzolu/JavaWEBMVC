@@ -27,7 +27,7 @@
     <input type="number" name="precio_compra" class="form-control" id="direccion_cliente">
   </div>
   <div class="form-group">
-    <label for="id_proveedor">id del Proveedor: </label>
+    <label for="id_proveedor">Proveedor: </label>
     <input type="number" name="venta_codigo" class="form-control" id="id_proveedor">
   </div>
   <div class="form-group">
@@ -35,7 +35,7 @@
     <input type="number" name="cantidad" class="form-control" id="cantidad">
   </div>
     <div class="form-group">
-    <label for="id_bodega">Id Bodega: </label>
+    <label for="id_bodega">Bodega: </label>
     <input type="number" name="id_bodega" class="form-control" id="id_bodega">
   </div>
     

@@ -26,7 +26,7 @@
     <input type="text" name="telefono_bodega" class="form-control" id="telefono_bodega">
   </div>
     <div class="form-group">
-    <label for="producto_id_producto">Codigo del Producto: </label>
+        <label for="producto_id_producto"> Producto: </label>
     <input type="number" name="producto_id_producto" class="form-control" id="producto_id_producto">
   </div>
     

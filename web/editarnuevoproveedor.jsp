@@ -27,7 +27,7 @@
     <input type="text" name="telefono_proveedor" class="form-control" id="telefono_proveedor">
   </div>
      <div class="form-group">
-    <label for="producto_id_producto">Id del producto: </label>
+    <label for="producto_id_producto">Producto: </label>
     <input type="number" name="producto_id_producto" class="form-control" id="producto_id_producto">
   </div>
   

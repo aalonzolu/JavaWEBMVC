@@ -35,7 +35,7 @@
     <input type="number" name="venta_codigo" class="form-control" id="venta_codigo">
   </div>
   <div class="form-group">
-    <label for="venta_id_cliente">Codigo de Venta del Cliente: </label>
+    <label for="venta_id_cliente">Codigo de Venta Cliente: </label>
     <input type="text" name="venta_id_cliente" class="form-control" id="venta_id_cliente">
   </div>
     
