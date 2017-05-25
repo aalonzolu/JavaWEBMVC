@@ -20,7 +20,7 @@ public class ConsultasUser extends Conexion {
         Statement st = null;
         try {
             st = connection.createStatement();
-            String consultaSQL = "insert into User(username, password,name) values " + "('" + username + "', '" + password + "', '" + name + "')";
+            String consultaSQL = "insert into user(username, password,name) values " + "('" + username + "', '" + password + "', '" + name + "')";
             filas = st.executeUpdate(consultaSQL);
         } catch (SQLException e) {
             System.err.println("Error en la carga del driver: " + e.getMessage());
@@ -49,7 +49,7 @@ public class ConsultasUser extends Conexion {
         String resName = "";
         try {
             st = connection.createStatement();
-            String consultaSQL = "SELECT * FROM User WHERE username='" + username + "' AND password='" + password + "';";
+            String consultaSQL = "SELECT * FROM user WHERE username='" + username + "' AND password='" + password + "';";
             // Result set get the result of the SQL query
             resultSet = st.executeQuery(consultaSQL);
             //Contar los resultados
