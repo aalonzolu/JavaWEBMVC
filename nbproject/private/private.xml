@@ -3,13 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/lexo/Documents/UMG/Progra%20III/ProyectoWeb/web/css/style.css</file>
             <file>file:/home/lexo/Documents/UMG/Progra%20III/ProyectoWeb/src/java/modelos/ConsultasUser.java</file>
-            <file>file:/home/lexo/Documents/UMG/Progra%20III/ProyectoWeb/web/templates/header_user.html</file>
-            <file>file:/home/lexo/Documents/UMG/Progra%20III/ProyectoWeb/web/templates/footer_user.html</file>
-            <file>file:/home/lexo/Documents/UMG/Progra%20III/ProyectoWeb/web/registro.jsp</file>
-            <file>file:/home/lexo/Documents/UMG/Progra%20III/ProyectoWeb/web/home.jsp</file>
-            <file>file:/home/lexo/Documents/UMG/Progra%20III/ProyectoWeb/src/java/controladores/Login.java</file>
+            <file>file:/home/lexo/Documents/UMG/Progra%20III/ProyectoWeb/src/java/controladores/perfil.java</file>
+            <file>file:/home/lexo/Documents/UMG/Progra%20III/ProyectoWeb/web/nuevoproveedor.jsp</file>
+            <file>file:/home/lexo/Documents/UMG/Progra%20III/ProyectoWeb/src/java/modelos/Conexion.java</file>
         </group>
     </open-files>
 </project-private>
