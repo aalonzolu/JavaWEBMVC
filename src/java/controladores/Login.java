@@ -34,12 +34,13 @@ public class Login extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String username = request.getParameter("user");
         String pass = request.getParameter("pass");
+        String res="";
         System.out.println(username + " " + pass);
         if(!username.isEmpty() && !pass.isEmpty()){
             ConsultasUser consuser = new ConsultasUser();
             // consultar si existe el usuario
-            String res = consuser.login(username,pass);
-            if(!res.isEmpty()){
+            res = consuser.login(username,pass);
+            if(res != ""){
                 HttpSession session=request.getSession();  
                 session.setAttribute("name",res);
                 session.setAttribute("username",username);

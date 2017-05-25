@@ -3,10 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/lexo/Documents/UMG/Progra%20III/ProyectoWeb/src/java/com/crismtl/tm/modelo/Conexion.java</file>
-            <file>file:/home/lexo/Documents/UMG/Progra%20III/ProyectoWeb/src/java/com/crismtl/tm/modelo/ConsultasUser.java</file>
-            <file>file:/home/lexo/Documents/UMG/Progra%20III/ProyectoWeb/src/java/com/crismtl/tm/controlador/Registro.java</file>
-            <file>file:/home/lexo/Documents/UMG/Progra%20III/ProyectoWeb/web/index.jsp</file>
+            <file>file:/home/lexo/Documents/UMG/Progra%20III/ProyectoWeb/web/css/style.css</file>
+            <file>file:/home/lexo/Documents/UMG/Progra%20III/ProyectoWeb/src/java/modelos/ConsultasUser.java</file>
+            <file>file:/home/lexo/Documents/UMG/Progra%20III/ProyectoWeb/web/templates/header_user.html</file>
+            <file>file:/home/lexo/Documents/UMG/Progra%20III/ProyectoWeb/web/templates/footer_user.html</file>
+            <file>file:/home/lexo/Documents/UMG/Progra%20III/ProyectoWeb/web/registro.jsp</file>
+            <file>file:/home/lexo/Documents/UMG/Progra%20III/ProyectoWeb/web/home.jsp</file>
+            <file>file:/home/lexo/Documents/UMG/Progra%20III/ProyectoWeb/src/java/controladores/Login.java</file>
         </group>
     </open-files>
 </project-private>

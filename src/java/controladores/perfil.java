@@ -38,7 +38,9 @@ public class perfil extends HttpServlet {
             if(session!=null){  
         String name=(String)session.getAttribute("name");  
           
-        out.print("Hello, "+name+" Welcome to Profile");  
+            //out.print("Hello, "+name+" Welcome to Profile");  
+            request.setAttribute("name", name);
+            request.getRequestDispatcher("perfil.jsp").forward(request, response);
         }  
         }
     }
