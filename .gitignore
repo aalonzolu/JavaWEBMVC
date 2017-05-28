@@ -1,3 +1,4 @@
 build/*
+nbproject
 nbproject/*
 src/java/modelos/Conexion.java
