@@ -9,11 +9,12 @@ import java.sql.*;
  *
  * @author kilroy
  */
-public class ConsultaCliente extends Conexion{
+public class ConsultasCliente extends Conexion{
     public int nuevo(String nit,String nombre, String apellido, String direccion,String telefono, String venta_codigo, String venta_id_cliente) {
         int filas = 0;
         Statement st = null;
         try {
+            //en la cadena de insercion no agregue venta_codigo ni venta_id_cliente ya que no me dejaba guardar los datos en la bd
             st = connection.createStatement();
             String consultaSQL = "insert into cliente(nit_cliente, nombre_cliente, apellido_cliente, direccion_cliente, telefono_cliente) values " + "('" + nit + "', '" + nombre + "','" + apellido + "', '" + direccion + "', '"+telefono+"')";
             filas = st.executeUpdate(consultaSQL);

@@ -12,14 +12,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelos.ConsultasCliente;
+import modelos.ConsultasProveedor;
 
 /**
  *
  * @author juan
  */
-@WebServlet(name = "nuevoCliente", urlPatterns = {"/nuevoCliente"})
-public class nuevoCliente extends HttpServlet {
+@WebServlet(name = "nuevoProveedor", urlPatterns = {"/nuevoProveedor"})
+public class nuevoProveedor extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,26 +32,24 @@ public class nuevoCliente extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-      
+          response.setContentType("text/html;charset=UTF-8");
         
         // Obtener datos
-        String nit = request.getParameter("nit_cliente");
-        String nombre = request.getParameter("nombre_cliente");
-        String apellido= request.getParameter("apellido_cliente");
-        String direccion = request.getParameter("direccion_cliente");
-        String telefono = request.getParameter("telefono_cliente");
-        String codigo_venta = request.getParameter("venta_codigo");
-        String venta_id_cliente = request.getParameter("venta_id_cliente");
-        if(!nit.isEmpty() && !nombre.isEmpty() && !apellido.isEmpty() && !direccion.isEmpty() && !telefono.isEmpty() && !codigo_venta.isEmpty() && !venta_id_cliente.isEmpty()){
+        String nit = request.getParameter("nit");
+        String nombre = request.getParameter("nombre_proveedor");
+        String direccion = request.getParameter("direccion_proveedor");
+        String telefono = request.getParameter("telefono_proveedor");
+        String producto_id = request.getParameter("producto_id_producto");
+        
+        if(!nit.isEmpty() && !nombre.isEmpty() && !direccion.isEmpty() && !telefono.isEmpty() && !producto_id.isEmpty()){
             
-                ConsultasCliente Conn = new ConsultasCliente();
-                Conn.nuevo(nit, nombre, apellido, direccion, telefono, codigo_venta, venta_id_cliente);
-                response.sendRedirect("listadoClientes.jsp");
+                ConsultasProveedor Conn = new ConsultasProveedor();
+                Conn.nuevo(nit, nombre, direccion, telefono, producto_id);
+                response.sendRedirect("listadoProveedores.jsp");
             
         }
         else {
-            response.sendRedirect("nuevocliente.jsp?error=Llene todos los campos");
+            response.sendRedirect("nuevoProveedor.jsp?error=Llene todos los campos");
         }
     }
 
