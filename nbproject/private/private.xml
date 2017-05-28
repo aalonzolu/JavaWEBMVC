@@ -3,9 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/juan/Documentos/inventario/src/java/modelos/Conexion.java</file>
-            <file>file:/home/juan/Documentos/inventario/web/nuevoproveedor.jsp</file>
-            <file>file:/home/juan/Documentos/inventario/web/home.jsp</file>
+            <file>file:/home/lexo/Documents/UMG/Progra%20III/ProyectoWeb/web/nuevoproducto.jsp</file>
+            <file>file:/home/lexo/Documents/UMG/Progra%20III/ProyectoWeb/src/java/controladores/nuevoProducto.java</file>
+            <file>file:/home/lexo/Documents/UMG/Progra%20III/ProyectoWeb/src/java/modelos/ConsultasBodega.java</file>
+            <file>file:/home/lexo/Documents/UMG/Progra%20III/ProyectoWeb/web/home.jsp</file>
+            <file>file:/home/lexo/Documents/UMG/Progra%20III/ProyectoWeb/src/java/controladores/Registro.java</file>
         </group>
     </open-files>
 </project-private>

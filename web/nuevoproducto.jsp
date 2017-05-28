@@ -4,10 +4,15 @@
     Author     : kilroy
 --%>
 
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.util.List"%>
+<%@page import="java.sql.Types"%>
 <%@ page session="true" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file='templates/header_user.html'%>
 <h1>Nuevo Producto</h1>
+<h1>Bodegas  </h1>
+
 <form action="" method="post">
  
   <div class="form-group">
@@ -36,7 +41,14 @@
   </div>
     <div class="form-group">
     <label for="id_bodega">Bodega: </label>
-    <input type="number" name="id_bodega" class="form-control" id="id_bodega">
+    <select class="form-control selectpicker" name="id_bodega" id="id_bodega">
+        <% ResultSet resultados = (ResultSet) request.getAttribute("resultados");
+     while(resultados.next()){ %>
+     <option name="<%= resultados.getString(1) %>"><%= resultados.getString(2) %></option>
+            <% } %>
+      </select>
+
+    
   </div>
     
   <button type="submit" class="btn btn-default">Guardar</button>
