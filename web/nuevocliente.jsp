@@ -8,7 +8,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file='templates/header_user.html'%>
 <h1>Nuevo Cliente</h1>
-<form action="" method="post">
+<form action="nuevoCliente" method="post">
  
   <div class="form-group">
     <label for="nit_cliente">Nit del Cliente: </label>
