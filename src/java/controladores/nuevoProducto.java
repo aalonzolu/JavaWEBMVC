@@ -36,8 +36,24 @@ public class nuevoProducto extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        //out.print("Hello, "+name+" Welcome to Profile");  
-            ConsultasBodega Conn = new ConsultasBodega();
+        String nit = request.getParameter("nit_cliente");
+        String nombre = request.getParameter("nombre_cliente");
+        String apellido= request.getParameter("apellido_cliente");
+        String direccion = request.getParameter("direccion_cliente");
+        String telefono = request.getParameter("telefono_cliente");
+        if(!nit.isEmpty() && !nombre.isEmpty() && !apellido.isEmpty() && !direccion.isEmpty() && !telefono.isEmpty()){
+            
+                //ConsultasCliente Conn = new ConsultasCliente();
+                //Conn.nuevo(nit, nombre, apellido, direccion, telefono);
+                response.sendRedirect("listadoClientes.jsp");
+            
+        }
+        else {
+            response.sendRedirect("nuevocliente.jsp?error=Llene todos los campos");
+        }
+        
+        //------------------------------------------------------------
+           ConsultasBodega Conn = new ConsultasBodega();
             ResultSet resultados = Conn.listado();
             request.setAttribute("resultados", resultados);
             request.getRequestDispatcher("nuevoproducto.jsp").forward(request, response);

@@ -7,6 +7,8 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.util.List"%>
 <%@page import="java.sql.Types"%>
+
+
 <%@ page session="true" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file='templates/header_user.html'%>
@@ -29,11 +31,11 @@
   </div>
     <div class="form-group">
     <label for="precio_compra">Precio de Compra: </label>
-    <input type="number" name="precio_compra" class="form-control" id="direccion_cliente">
+    <input type="number" name="precio_compra" class="form-control" id="precio_compra">
   </div>
   <div class="form-group">
     <label for="id_proveedor">Proveedor: </label>
-    <input type="number" name="venta_codigo" class="form-control" id="id_proveedor">
+    <input type="number" name="id_proveedor" class="form-control" id="id_proveedor">
   </div>
   <div class="form-group">
     <label for="cantidad">Unidades en existencia: </label>
@@ -47,8 +49,6 @@
      <option name="<%= resultados.getString(1) %>"><%= resultados.getString(2) %></option>
             <% } %>
       </select>
-
-    
   </div>
     
   <button type="submit" class="btn btn-default">Guardar</button>

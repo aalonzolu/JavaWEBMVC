@@ -7,16 +7,16 @@ package modelos;
 import java.sql.*;
 /**
  *
- * @author kilroy
+ * @author juan
  */
-public class ConsultasCliente extends Conexion{
-    public int nuevo(String nit,String nombre, String apellido, String direccion,String telefono) {
+public class ConsultasProducto extends Conexion{
+    public int nuevo(String codigo, String nombre, String precio_venta, String precio_compra, String id_proveedor ,String cantidad) {
         int filas = 0;
         Statement st = null;
         try {
             
             st = connection.createStatement();
-            String consultaSQL = "insert into cliente(nit_cliente, nombre_cliente, apellido_cliente, direccion_cliente, telefono_cliente) values " + "('" + nit + "', '" + nombre + "','" + apellido + "', '" + direccion + "', '"+telefono+"')";
+            String consultaSQL = "insert into producto(codigo_producto, nombre_producto, precio_venta, precio_compra, id_proveedor, cantidad) values " + "('" + codigo + "', '" + nombre + "','" + precio_venta + "', '" + precio_compra + "', '"+id_proveedor+"','"+cantidad+"')";
             filas = st.executeUpdate(consultaSQL);
         } catch (SQLException e) {
             System.err.println("Error en la carga del driver: " + e.getMessage());
@@ -66,5 +66,5 @@ public class ConsultasCliente extends Conexion{
             System.err.println("Error en la carga del driver: " + e.getMessage());
         } 
         return filas;
-    }
+    } 
 }
