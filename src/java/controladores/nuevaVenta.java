@@ -12,18 +12,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelos.ConsultasBodega;
-import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import modelos.ConsultasProducto;
-
+import modelos.ConsultasVenta;
 /**
  *
- * @author lexo
+ * @author juan
  */
-@WebServlet(name = "nuevoProducto", urlPatterns = {"/nuevoProducto"})
-public class nuevoProducto extends HttpServlet {
+@WebServlet(name = "nuevaVenta", urlPatterns = {"/nuevaVenta"})
+public class nuevaVenta extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,28 +32,26 @@ public class nuevoProducto extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String codigo = request.getParameter("codigo_producto");
-        String nombre = request.getParameter("nombre_producto");
-        String precio_venta= request.getParameter("precio_venta");
-        String precio_compra = request.getParameter("precio_compra");
-        String id_proveedor = request.getParameter("id_proveedor");
+        String correlativo = request.getParameter("correlativo");
+        String id_producto = request.getParameter("id_producto");
+        String id_bodega= request.getParameter("id_bodega");
         String cantidad = request.getParameter("cantidad");
-        if(!codigo.isEmpty() && !nombre.isEmpty() && !precio_venta.isEmpty() && !precio_compra.isEmpty() && !id_proveedor.isEmpty() && !cantidad.isEmpty()){
+        String precio_venta = request.getParameter("precio_venta");
+        String precio_compra = request.getParameter("precio_compra");
+        String id_cliente = request.getParameter("id_cliente");
+        String descuento = request.getParameter("descuento");
+        String fecha = request.getParameter("fecha");
+        
+        if(!correlativo.isEmpty() && !id_producto.isEmpty() && !id_bodega.isEmpty() && !cantidad.isEmpty() && !precio_venta.isEmpty() && !precio_compra.isEmpty() && !id_cliente.isEmpty() && !descuento.isEmpty() && !fecha.isEmpty()){
             
-                ConsultasProducto Conn = new ConsultasProducto();
-                Conn.nuevo(codigo, nombre, precio_venta, precio_compra, id_proveedor, cantidad);
-                response.sendRedirect("listadoProductos.jsp");
+                ConsultasVenta Conn = new ConsultasVenta();
+                Conn.nuevo(correlativo, id_producto, id_bodega, cantidad, precio_venta, precio_compra, id_cliente, descuento, fecha);
+                response.sendRedirect("listadoVentas.jsp");
             
         }
         else {
-            response.sendRedirect("nuevoproducto.jsp?error=Llene todos los campos");
+            response.sendRedirect("nuevaventa.jsp?error=Llene todos los campos");
         }
-        
-        //------------------------------------------------------------
-           /*ConsultasBodega Conn = new ConsultasBodega();
-            ResultSet resultados = Conn.listado();
-            request.setAttribute("resultados", resultados);
-            request.getRequestDispatcher("nuevoproducto.jsp").forward(request, response);*/
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

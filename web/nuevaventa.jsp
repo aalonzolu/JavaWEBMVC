@@ -8,14 +8,14 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file='templates/header_user.html'%>
 <h1>Nueva Venta</h1>
-<form action="" method="post">
+<form action="nuevaVenta" method="post">
   <div class="form-group" >
     <label for="correlativo">Correlativo de la venta: </label>
     <input type="text" name="correlativo" class="form-control" id="correlativo">
   </div>
   <div class="form-group">
     <label for="id_producto">Producto: </label>
-    <input type="int" name="nombre_proveedor" class="form-control" id="id_producto">
+    <input type="int" name="id_producto" class="form-control" id="id_producto">
   </div>
   <div class="form-group">
     <label for="id_bodega">Bodega: </label>

@@ -15,7 +15,7 @@
 <h1>Nuevo Producto</h1>
 <h1>Bodegas  </h1>
 
-<form action="" method="post">
+<form action="nuevoProducto" method="post">
  
   <div class="form-group">
     <label for="codigo_producto">Codigo Producto: </label>
@@ -41,15 +41,7 @@
     <label for="cantidad">Unidades en existencia: </label>
     <input type="number" name="cantidad" class="form-control" id="cantidad">
   </div>
-    <div class="form-group">
-    <label for="id_bodega">Bodega: </label>
-    <select class="form-control selectpicker" name="id_bodega" id="id_bodega">
-        <% ResultSet resultados = (ResultSet) request.getAttribute("resultados");
-     while(resultados.next()){ %>
-     <option name="<%= resultados.getString(1) %>"><%= resultados.getString(2) %></option>
-            <% } %>
-      </select>
-  </div>
+   
     
   <button type="submit" class="btn btn-default">Guardar</button>
 </form>
