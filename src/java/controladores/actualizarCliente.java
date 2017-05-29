@@ -16,10 +16,10 @@ import modelos.ConsultasCliente;
 
 /**
  *
- * @author juan
+ * @author lexo
  */
-@WebServlet(name = "nuevoCliente", urlPatterns = {"/nuevoCliente"})
-public class nuevoCliente extends HttpServlet {
+@WebServlet(name = "actualizarCliente", urlPatterns = {"/actualizarCliente"})
+public class actualizarCliente extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,17 +33,19 @@ public class nuevoCliente extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-      
         // Obtener datos
+        int id = Integer.parseInt(request.getParameter("id_cliente"));
         String nit = request.getParameter("nit_cliente");
         String nombre = request.getParameter("nombre_cliente");
         String apellido= request.getParameter("apellido_cliente");
         String direccion = request.getParameter("direccion_cliente");
         String telefono = request.getParameter("telefono_cliente");
-        if(!nit.isEmpty() && !nombre.isEmpty() && !apellido.isEmpty() && !direccion.isEmpty() && !telefono.isEmpty()){
+        
+        
+        if(id>0 && !nit.isEmpty() && !nombre.isEmpty() && !apellido.isEmpty() && !direccion.isEmpty() && !telefono.isEmpty()){
             
                 ConsultasCliente Conn = new ConsultasCliente();
-                Conn.nuevo(nit, nombre, apellido, direccion, telefono);
+                Conn.actualizar(id,nit, nombre, apellido, direccion, telefono);
                 response.sendRedirect("listadoClientes.jsp");
             
         }

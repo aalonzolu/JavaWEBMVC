@@ -12,14 +12,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelos.ConsultasCliente;
 
 /**
  *
- * @author juan
+ * @author lexo
  */
-@WebServlet(name = "nuevoCliente", urlPatterns = {"/nuevoCliente"})
-public class nuevoCliente extends HttpServlet {
+@WebServlet(name = "listadoClientes", urlPatterns = {"/listadoClientes"})
+public class listadoClientes extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,23 +32,7 @@ public class nuevoCliente extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-      
-        // Obtener datos
-        String nit = request.getParameter("nit_cliente");
-        String nombre = request.getParameter("nombre_cliente");
-        String apellido= request.getParameter("apellido_cliente");
-        String direccion = request.getParameter("direccion_cliente");
-        String telefono = request.getParameter("telefono_cliente");
-        if(!nit.isEmpty() && !nombre.isEmpty() && !apellido.isEmpty() && !direccion.isEmpty() && !telefono.isEmpty()){
-            
-                ConsultasCliente Conn = new ConsultasCliente();
-                Conn.nuevo(nit, nombre, apellido, direccion, telefono);
-                response.sendRedirect("listadoClientes.jsp");
-            
-        }
-        else {
-            response.sendRedirect("nuevocliente.jsp?error=Llene todos los campos");
-        }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

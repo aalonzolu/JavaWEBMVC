@@ -30,14 +30,6 @@
     <label for="telefono_cliente">Telefono del Cliente: </label>
     <input type="text" name="telefono_cliente" class="form-control" id="telefono_cliente">
   </div>
-  <div class="form-group">
-    <label for="venta_codigo">Codigo de venta: </label>
-    <input type="number" name="venta_codigo" class="form-control" id="venta_codigo">
-  </div>
-  <div class="form-group">
-    <label for="venta_id_cliente">Codigo de Venta Cliente: </label>
-    <input type="text" name="venta_id_cliente" class="form-control" id="venta_id_cliente">
-  </div>
     
   <button type="submit" class="btn btn-default">Guardar</button>
 </form>
