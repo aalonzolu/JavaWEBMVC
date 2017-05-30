@@ -37,7 +37,7 @@
         <td><%= productos.getString(6) %></td>
          <td><%= productos.getString(7) %></td>
         <td>
-            <a href="editarcliente.jsp?cliente=<%= productos.getString(1) %>" ><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+            <a href="editarproducto.jsp?producto=<%= productos.getString(1) %>" ><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
         </td>
       </tr>
       <% } %>

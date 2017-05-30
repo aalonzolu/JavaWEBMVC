@@ -51,4 +51,34 @@ public class ConsultasProveedor extends Conexion {
         } 
         return filas;
     }
+    public ResultSet getUno(int id) {
+        ResultSet filas = null;
+        Statement st = null;
+        try {
+            st = connection.createStatement();
+            String consultaSQL = "SELECT * FROM proveedor WHERE id_proveedor='"+id+"'";
+            filas = st.executeQuery(consultaSQL);
+        } catch (SQLException e) {
+            System.err.println("Error en la carga del driver: " + e.getMessage());
+        } 
+        return filas;
+    }
+    public int actualizar(int id,String nit,String nombre, String direccion,String telefono) {
+        int filas = 0;
+        Statement st = null;
+        try {
+            //en la cadena de insercion no agregue venta_codigo ni venta_id_cliente ya que no me dejaba guardar los datos en la bd
+            st = connection.createStatement();
+            String udateSQL = "UPDATE proveedor " +
+                    "SET nit = '" + nit + "', nombre_proveedor = '" + nombre + "'," 
+                    +" direccion_proveedor = '" + direccion + "'," +" telefono_proveedor = '" + telefono + "' " +
+                    " WHERE id_proveedor ="+id+";";
+            
+            System.out.println(udateSQL);
+            filas = st.executeUpdate(udateSQL);
+        } catch (SQLException e) {
+            System.err.println("Error en la carga del driver: " + e.getMessage());
+        }
+        return filas;
+    }
 }

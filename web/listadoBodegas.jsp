@@ -29,11 +29,11 @@
     ResultSet bodega = Conn.listado();
      while(bodega.next()){ %>
      <tr>
-        <td><%= bodega.getString(2) %></td>
         <td><%= bodega.getString(3) %></td>
         <td><%= bodega.getString(4) %></td>
+        <td><%= bodega.getString(5) %></td>
         <td>
-            <a href="editarcliente.jsp?cliente=<%= bodega.getString(1) %>" ><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+            <a href="editarbodega.jsp?bodega=<%= bodega.getString(1) %>" ><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
         </td>
       </tr>
       <% } %>

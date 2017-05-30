@@ -15,6 +15,7 @@ public class ConsultasBodega extends Conexion  {
     
     public int nuevo(String codigo,String nombre, String direccion,String telefono) {
         int filas = 0;
+        
         Statement st = null;
         try {
             st = connection.createStatement();
@@ -53,4 +54,34 @@ public class ConsultasBodega extends Conexion  {
         } 
         return filas;
     }
+     public ResultSet getUno(int id) {
+        ResultSet filas = null;
+        Statement st = null;
+        try {
+            st = connection.createStatement();
+            String consultaSQL = "SELECT * FROM bodega WHERE id_bodega='"+id+"'";
+            filas = st.executeQuery(consultaSQL);
+        } catch (SQLException e) {
+            System.err.println("Error en la carga del driver: " + e.getMessage());
+        } 
+        return filas;
+    }
+     public int actualizar(int id, String codigo,String nombre, String direccion,String telefono) {
+        int filas = 0;
+        Statement st = null;
+        try {
+            
+            st = connection.createStatement();
+            String udateSQL = "UPDATE bodega " +
+                    "SET codigo = '"+codigo+"', nombre= '" + nombre + "'," +" direccion_bodega = '" + direccion + "'," 
+                    +" telefono_bodega = '" + telefono + "' " +"  WHERE id_bodega ="+id+";";
+            
+            System.out.println(udateSQL);
+            filas = st.executeUpdate(udateSQL);
+        } catch (SQLException e) {
+            System.err.println("Error en la carga del driver: " + e.getMessage());
+        }
+        return filas;
+    }
+
 }
