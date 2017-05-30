@@ -46,6 +46,8 @@
     <label for="fecha">Fecha de la venta: </label>
     <input type="date" name="fecha" class="form-control" id="fecha">
   </div>
+  
+  
      <div class="form-group">
     <label for="id_usuario">Usuario: </label>
     <input type="number" name="id_usuario" class="form-control" id="id_usuario">

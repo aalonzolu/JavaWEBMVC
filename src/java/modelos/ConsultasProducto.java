@@ -47,7 +47,7 @@ public class ConsultasProducto extends Conexion{
         Statement st = null;
         try {
             st = connection.createStatement();
-            String consultaSQL = "SELECT * FROM cliente";
+            String consultaSQL = "SELECT * FROM producto";
             filas = st.executeQuery(consultaSQL);
         } catch (SQLException e) {
             System.err.println("Error en la carga del driver: " + e.getMessage());
