@@ -7,6 +7,8 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.util.List"%>
 <%@page import="java.sql.Types"%>
+<%@page import="modelos.ConsultasBodega"%>
+<%@page import="modelos.ConsultasProveedor"%>
 
 
 <%@ page session="true" %>
@@ -35,8 +37,26 @@
   </div>
   <div class="form-group">
     <label for="id_proveedor">Proveedor: </label>
-    <input type="number" name="id_proveedor" class="form-control" id="id_proveedor">
+    <select name="id_proveedor" class="form-control" id="id_proveedor">
+        <% ConsultasProveedor ConnP = new ConsultasProveedor();
+    ResultSet proveedores = ConnP.listado();
+     while(proveedores.next()){ %>
+     <option value="<%= proveedores.getString(1) %>"><%= proveedores.getString(3) %></option>
+      <% } %>
+    </select>
   </div>
+  <div class="form-group">
+    <label for="id_bodega">Bodega: </label>
+    <select name="id_bodega" class="form-control" id="id_bodega">
+        <%
+    ConsultasBodega Conn = new ConsultasBodega();
+    ResultSet bodega = Conn.listado();
+     while(bodega.next()){ %>
+     <option value="<%= bodega.getString(1) %>"><%= bodega.getString(2) %></option>
+      <% } %>
+    </select>
+  </div>
+  
   <div class="form-group">
     <label for="cantidad">Unidades en existencia: </label>
     <input type="number" name="cantidad" class="form-control" id="cantidad">

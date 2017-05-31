@@ -40,10 +40,11 @@ public class actualizarProducto extends HttpServlet {
         String precio_compra = request.getParameter("precio_compra");
         String id_proveedor = request.getParameter("id_proveedor");
         String cantidad = request.getParameter("cantidad");
-        if(id >0 && !codigo.isEmpty() && !nombre.isEmpty() && !precio_venta.isEmpty() && !precio_compra.isEmpty() && !id_proveedor.isEmpty() && !cantidad.isEmpty()){
+        String id_bodega = request.getParameter("id_bodega");
+        if(id >0 && !codigo.isEmpty() && !nombre.isEmpty() && !precio_venta.isEmpty() && !precio_compra.isEmpty() && !id_proveedor.isEmpty() && !cantidad.isEmpty() && !id_bodega.isEmpty() ){
             
                 ConsultasProducto Conn = new ConsultasProducto();
-                Conn.actualizar(id, codigo, nombre, precio_venta, precio_compra, id_proveedor, cantidad);
+                Conn.actualizar(id, codigo, nombre, precio_venta, precio_compra, id_proveedor, cantidad,id_bodega);
                 response.sendRedirect("listadoProductos.jsp");
             
         }

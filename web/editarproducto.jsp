@@ -3,6 +3,8 @@
     Created on : 25/05/2017, 09:48:44 AM
     Author     : kilroy
 --%>
+<%@page import="modelos.ConsultasProveedor"%>
+<%@page import="modelos.ConsultasBodega"%>
 <% if (request.getParameter("producto") == null){
     // si no se mando el parametro cliente redireccionar al listado
     response.sendRedirect("listadoProductos.jsp");
@@ -25,6 +27,7 @@
         String precio_compra = "";
         String id_proveedor= "";
         String cantidad= "";
+        String id_bodega="";
         
         
         int ID = Integer.parseInt(request.getParameter("producto"));
@@ -37,6 +40,7 @@
             precio_compra = productos.getString(5);
             id_proveedor = productos.getString(6);
             cantidad = productos.getString(7);
+            id_bodega = productos.getString(8);
         } %>
   <div class="form-group">
     <label for="codigo_producto">Codigo Producto: </label>
@@ -57,7 +61,29 @@
   </div>
   <div class="form-group">
     <label for="id_proveedor">Proveedor: </label>
-    <input type="number" name="id_proveedor" class="form-control" value="<%= id_proveedor %>" id="id_proveedor">
+    <select name="id_proveedor" class="form-control <%= id_proveedor %>" id="id_proveedor">
+        <% ConsultasProveedor ConnP = new ConsultasProveedor();
+    ResultSet proveedores = ConnP.listado();
+     while(proveedores.next()){ %>
+     <option value="<%= proveedores.getString(1) %>"<%
+             if(proveedores.getString(1).equals(id_proveedor)){
+                 %> selected <%
+             }
+             %>><%= proveedores.getString(3) %></option>
+      <% } %>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="id_bodega">Bodega: </label>
+    <select name="id_bodega" class="form-control" id="id_bodega">
+        <%
+    ConsultasBodega Conn3 = new ConsultasBodega();
+    ResultSet bodega = Conn3.listado();
+     while(bodega.next()){ %>
+     <option value="<%= bodega.getString(1) %>"<%if(bodega.getString(1).equals(id_bodega)){
+%> selected <%}%>><%= bodega.getString(2) %></option>
+      <% } %>
+    </select>
   </div>
   <div class="form-group">
     <label for="cantidad">Unidades en existencia: </label>

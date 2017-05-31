@@ -1,10 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `inventario` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `inventario`;
 -- MySQL dump 10.13  Distrib 5.7.18, for Linux (x86_64)
 --
--- Host: localhost    Database: inventario
+-- Host: 192.168.33.10    Database: inventario
 -- ------------------------------------------------------
--- Server version	5.5.5-10.1.21-MariaDB
+-- Server version	5.5.46-0ubuntu0.14.04.2
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -26,26 +24,13 @@ DROP TABLE IF EXISTS `bodega`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `bodega` (
   `id_bodega` int(11) NOT NULL AUTO_INCREMENT,
-  `codigo` varchar(10) NOT NULL,
   `nombre` varchar(45) NOT NULL,
   `direccion_bodega` varchar(45) NOT NULL,
   `telefono_bodega` varchar(8) NOT NULL,
-  `producto_id_producto` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_bodega`),
-  KEY `fk_bodega_producto1_idx` (`producto_id_producto`),
-  CONSTRAINT `fk_bodega_producto1` FOREIGN KEY (`producto_id_producto`) REFERENCES `producto` (`id_producto`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  `codigo` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id_bodega`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `bodega`
---
-
-LOCK TABLES `bodega` WRITE;
-/*!40000 ALTER TABLE `bodega` DISABLE KEYS */;
-INSERT INTO `bodega` VALUES (1,'1','bodegon1','zona 48','22450043',NULL),(2,'2','bodegona2','zona3','54643369',NULL);
-/*!40000 ALTER TABLE `bodega` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `cliente`
@@ -61,23 +46,9 @@ CREATE TABLE `cliente` (
   `apellido_cliente` varchar(45) NOT NULL,
   `direccion_cliente` varchar(45) NOT NULL,
   `telefono_cliente` varchar(8) NOT NULL,
-  `venta_codigo` int(11) DEFAULT NULL,
-  `venta_id_cliente` decimal(8,0) DEFAULT NULL,
-  PRIMARY KEY (`id_cliente`),
-  KEY `fk_cliente_venta1_idx` (`venta_codigo`,`venta_id_cliente`),
-  CONSTRAINT `fk_cliente_venta1` FOREIGN KEY (`venta_codigo`, `venta_id_cliente`) REFERENCES `venta` (`codigo`, `id_cliente`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`id_cliente`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `cliente`
---
-
-LOCK TABLES `cliente` WRITE;
-/*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
-INSERT INTO `cliente` VALUES (2,'1111','juan','gonzales','zona 10','22056',NULL,NULL);
-/*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `producto`
@@ -100,16 +71,6 @@ CREATE TABLE `producto` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `producto`
---
-
-LOCK TABLES `producto` WRITE;
-/*!40000 ALTER TABLE `producto` DISABLE KEYS */;
-INSERT INTO `producto` VALUES (1,'0001','jugos',24,25,1111,45,NULL);
-/*!40000 ALTER TABLE `producto` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `proveedor`
 --
 
@@ -118,26 +79,13 @@ DROP TABLE IF EXISTS `proveedor`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `proveedor` (
   `id_proveedor` int(11) NOT NULL AUTO_INCREMENT,
-  `nit` varchar(10) NOT NULL,
+  `nit` int(11) NOT NULL,
   `nombre_proveedor` varchar(45) NOT NULL,
   `direccion_proveedor` varchar(45) NOT NULL,
   `telefono_proveedor` varchar(45) NOT NULL,
-  `producto_id_producto` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_proveedor`),
-  KEY `fk_proveedor_producto1_idx` (`producto_id_producto`),
-  CONSTRAINT `proveedor_ibfk_1` FOREIGN KEY (`producto_id_producto`) REFERENCES `producto` (`id_producto`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`id_proveedor`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `proveedor`
---
-
-LOCK TABLES `proveedor` WRITE;
-/*!40000 ALTER TABLE `proveedor` DISABLE KEYS */;
-INSERT INTO `proveedor` VALUES (1,'4333','juan','zona 3','23456789',NULL);
-/*!40000 ALTER TABLE `proveedor` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `user`
@@ -151,23 +99,9 @@ CREATE TABLE `user` (
   `username` varchar(45) DEFAULT NULL,
   `password` varchar(45) DEFAULT NULL,
   `name` varchar(100) DEFAULT NULL,
-  `venta_codigo` int(11) DEFAULT NULL,
-  `venta_id_cliente` decimal(8,0) DEFAULT NULL,
-  PRIMARY KEY (`id_user`),
-  KEY `fk_user_venta1_idx` (`venta_codigo`,`venta_id_cliente`),
-  CONSTRAINT `fk_user_venta1` FOREIGN KEY (`venta_codigo`, `venta_id_cliente`) REFERENCES `venta` (`codigo`, `id_cliente`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id_user`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `user`
---
-
-LOCK TABLES `user` WRITE;
-/*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (14,'hector1','Un1','Hector Joel Felipe Carrillo',NULL,NULL);
-/*!40000 ALTER TABLE `user` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `venta`
@@ -179,8 +113,6 @@ DROP TABLE IF EXISTS `venta`;
 CREATE TABLE `venta` (
   `codigo` int(11) NOT NULL AUTO_INCREMENT,
   `correlativo` varchar(5) NOT NULL,
-  `id_producto` int(11) NOT NULL,
-  `id_bodega` int(11) NOT NULL,
   `cantidad` int(11) NOT NULL,
   `precio_venta` decimal(8,0) NOT NULL,
   `precio_compra` decimal(8,0) NOT NULL,
@@ -188,27 +120,9 @@ CREATE TABLE `venta` (
   `descuento` decimal(8,0) NOT NULL,
   `fecha` datetime NOT NULL,
   `id_usuario` int(11) DEFAULT NULL,
-  PRIMARY KEY (`codigo`,`id_cliente`),
-  KEY `rel3` (`id_bodega`),
-  KEY `rel2` (`id_producto`),
-  CONSTRAINT `rel2` FOREIGN KEY (`id_producto`) REFERENCES `producto` (`id_producto`) ON UPDATE CASCADE,
-  CONSTRAINT `rel3` FOREIGN KEY (`id_bodega`) REFERENCES `bodega` (`id_bodega`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`codigo`,`id_cliente`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `venta`
---
-
-LOCK TABLES `venta` WRITE;
-/*!40000 ALTER TABLE `venta` DISABLE KEYS */;
-INSERT INTO `venta` VALUES (1,'1',1,1,22,21,21,2,3,'1015-04-24 14:12:09',NULL);
-/*!40000 ALTER TABLE `venta` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Dumping routines for database 'inventario'
---
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -219,4 +133,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-30 16:56:49
+-- Dump completed on 2017-05-30 20:54:44
