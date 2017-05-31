@@ -10,7 +10,6 @@
 <%@page import="modelos.ConsultasBodega"%>
 
 <%@ page session="true" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file='templates/header_user.html'%>
 <h1>Listado de Bodegas de la empresa</h1>
 
@@ -19,7 +18,7 @@
       <tr>
         <th>Nombre de la Bodega</th>
         <th>Direccion de la Bodega</th>
-        <th>telÃ©fono de la Bodega</th>
+        <th>teléfono de la Bodega</th>
         <th>Acciones</th>
       </tr>
     </thead>

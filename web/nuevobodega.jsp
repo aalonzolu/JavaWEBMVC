@@ -23,7 +23,7 @@
   </div>
    <div class="form-group">
     <label for="telefono_bodega">Telefono de la Bodega: </label>
-    <input type="text" name="telefono_bodega" class="form-control" id="telefono_bodega">
+    <input  type="tel" maxlength="8" name="telefono_bodega" class="form-control" id="telefono_bodega">
   </div>
     
   <button type="submit" class="btn btn-default">Guardar</button>

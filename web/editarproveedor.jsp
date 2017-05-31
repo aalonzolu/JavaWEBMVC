@@ -49,7 +49,7 @@
   </div>
    <div class="form-group">
     <label for="telefono_proveedor">telefono del proveedor: </label>
-    <input type="text" name="telefono_proveedor" class="form-control" value="<%= telefono %>" id="telefono_proveedor">
+    <input type="tel" maxlength="8"  name="telefono_proveedor" class="form-control" value="<%= telefono %>" id="telefono_proveedor">
   </div>
    
   

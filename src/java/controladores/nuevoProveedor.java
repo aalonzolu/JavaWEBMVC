@@ -39,13 +39,13 @@ public class nuevoProveedor extends HttpServlet {
         String nombre = request.getParameter("nombre_proveedor");
         String direccion = request.getParameter("direccion_proveedor");
         String telefono = request.getParameter("telefono_proveedor");
-        String producto_id = request.getParameter("producto_id_producto");
+        //String producto_id = request.getParameter("producto_id_producto");
         
-        if(!nit.isEmpty() && !nombre.isEmpty() && !direccion.isEmpty() && !telefono.isEmpty() && !producto_id.isEmpty()){
+        if(!nit.isEmpty() && !nombre.isEmpty() && !direccion.isEmpty() && !telefono.isEmpty()){
             
                 ConsultasProveedor Conn = new ConsultasProveedor();
-                Conn.nuevo(nit, nombre, direccion, telefono, producto_id);
-                response.sendRedirect("listadoProveedores.jsp");
+                Conn.nuevo(nit, nombre, direccion, telefono);
+                response.sendRedirect("listadoProveedor.jsp");
             
         }
         else {

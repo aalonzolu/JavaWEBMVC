@@ -10,7 +10,7 @@ import java.sql.*;
  * @author juan
  */
 public class ConsultasProveedor extends Conexion {
-     public int nuevo(String nit, String nombre, String direccion, String telefono, String producto_id_producto) {
+     public int nuevo(String nit, String nombre, String direccion, String telefono) {
         int filas = 0;
         Statement st = null;
         try {

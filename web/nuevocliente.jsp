@@ -28,7 +28,7 @@
   </div>
     <div class="form-group">
     <label for="telefono_cliente">Telefono del Cliente: </label>
-    <input type="text" name="telefono_cliente" class="form-control" id="telefono_cliente">
+    <input type="tel" maxlength="8"  name="telefono_cliente" class="form-control" id="telefono_cliente">
   </div>
     
   <button type="submit" class="btn btn-default">Guardar</button>
