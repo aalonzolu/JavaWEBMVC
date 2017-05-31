@@ -12,7 +12,9 @@
 <%@ page session="true" %>
 <%@include file='templates/header_user.html'%>
 <h1>Listado de Bodegas de la empresa</h1>
-
+<form action="nuevobodega.jsp" method="post">
+     <button type="submit" class="btn btn-default" value="nuevobodega.jsp">Nuevo</button>
+</form>
 <table class="table table-hover">
     <thead>
       <tr>

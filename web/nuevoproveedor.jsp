@@ -9,8 +9,13 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file='templates/header_user.html'%>
 <h1>Nuevo Proveedor</h1>
+
 <form action="nuevoProveedor" method="post">
-  <div class="form-group">
+   
+
+    <div class="form-group">
+       
+
     <label for="nit">NIT</label>
     <input type="number" name="nit" class="form-control" id="nit">
   </div>

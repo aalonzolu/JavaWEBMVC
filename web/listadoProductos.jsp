@@ -13,7 +13,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file='templates/header_user.html'%>
 <h1>Listado de productos a la venta</h1>
-
+<form action="nuevoproducto.jsp" method="post">
+     <button type="submit" class="btn btn-default" value="nuevoproducto.jsp">Nuevo</button>
+</form>
 <table class="table table-hover">
     <thead>
       <tr>

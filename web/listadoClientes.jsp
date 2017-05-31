@@ -13,7 +13,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file='templates/header_user.html'%>
 <h1>Listado de clientes registrados</h1>
-
+<form action="nuevocliente.jsp" method="post">
+     <button type="submit" class="btn btn-default" value="nuevocliente.jsp">Nuevo</button>
+</form>
 <table class="table table-hover">
     <thead>
       <tr>
