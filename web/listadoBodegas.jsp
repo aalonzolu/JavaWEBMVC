@@ -12,9 +12,7 @@
 <%@ page session="true" %>
 <%@include file='templates/header_user.html'%>
 <h1>Listado de Bodegas de la empresa</h1>
-<form action="nuevobodega.jsp" method="post">
-     <button type="submit" class="btn btn-default" value="nuevobodega.jsp">Nuevo</button>
-</form>
+<a href="nuevobodega.jsp" class="btn btn-default btn-circle btn-danger"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
 <table class="table table-hover">
     <thead>
       <tr>
@@ -30,9 +28,9 @@
     ResultSet bodega = Conn.listado();
      while(bodega.next()){ %>
      <tr>
+        <td><%= bodega.getString(2) %></td>
         <td><%= bodega.getString(3) %></td>
         <td><%= bodega.getString(4) %></td>
-        <td><%= bodega.getString(5) %></td>
         <td>
             <a href="editarbodega.jsp?bodega=<%= bodega.getString(1) %>" ><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
         </td>

@@ -13,7 +13,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file='templates/header_user.html'%>
 <h1>Listado de productos a la venta</h1>
-
+<a href="nuevaventa.jsp" class="btn btn-default btn-circle btn-danger"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
 <table class="table table-hover">
     <thead>
       <tr>

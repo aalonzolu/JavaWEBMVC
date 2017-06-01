@@ -13,9 +13,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file='templates/header_user.html'%>
 <h1>Listado de proveedores</h1>
-<form action="nuevoproveedor.jsp" method="post">
-     <button type="submit" class="btn btn-default" value="nuevoproveedor.jsp">Nuevo</button>
-</form>
+<a href="nuevoproveedor.jsp" class="btn btn-default btn-circle btn-danger"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
 <table class="table table-hover">
     <thead>
       <tr>
