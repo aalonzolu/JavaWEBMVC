@@ -29,7 +29,7 @@ CREATE TABLE `bodega` (
   `telefono_bodega` varchar(8) NOT NULL,
   `codigo` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id_bodega`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -47,7 +47,7 @@ CREATE TABLE `cliente` (
   `direccion_cliente` varchar(45) NOT NULL,
   `telefono_cliente` varchar(8) NOT NULL,
   PRIMARY KEY (`id_cliente`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -67,7 +67,7 @@ CREATE TABLE `producto` (
   `cantidad` int(11) DEFAULT '0',
   `id_bodega` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_producto`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -84,7 +84,7 @@ CREATE TABLE `proveedor` (
   `direccion_proveedor` varchar(45) NOT NULL,
   `telefono_proveedor` varchar(45) NOT NULL,
   PRIMARY KEY (`id_proveedor`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -111,16 +111,31 @@ DROP TABLE IF EXISTS `venta`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `venta` (
-  `codigo` int(11) NOT NULL AUTO_INCREMENT,
+  `id_venta` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `cliente_id` int(11) DEFAULT NULL,
+  `fecha_venta` datetime DEFAULT NULL,
+  PRIMARY KEY (`id_venta`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `venta_detalle`
+--
+
+DROP TABLE IF EXISTS `venta_detalle`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `venta_detalle` (
+  `id_venta_detalle` int(11) NOT NULL AUTO_INCREMENT,
+  `codigo_producto` int(11) NOT NULL,
   `correlativo` varchar(5) NOT NULL,
   `cantidad` int(11) NOT NULL,
   `precio_venta` decimal(8,0) NOT NULL,
   `precio_compra` decimal(8,0) NOT NULL,
-  `id_cliente` decimal(8,0) NOT NULL,
   `descuento` decimal(8,0) NOT NULL,
-  `fecha` datetime NOT NULL,
-  `id_usuario` int(11) DEFAULT NULL,
-  PRIMARY KEY (`codigo`,`id_cliente`)
+  `id_venta` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_venta_detalle`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -133,4 +148,4 @@ CREATE TABLE `venta` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-30 20:54:44
+-- Dump completed on 2017-06-01  0:52:59
