@@ -35,6 +35,8 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+
     
   </head>
   <body>
@@ -89,9 +91,16 @@
       <div class="row-2">
           <div class="col-sm-12 col-md-4 col-md-offset-4 text-center">
               <b><%if (request.getParameter("error") != null) {
-                  out.println("<div class='alert alert-warning'>");
+                  out.println("<div class='alert alert-danger' id='alert_h'>");
                   out.println(request.getParameter("error"));
                   out.println("</div>");
+                  out.println("<script>$('#alert_h').fadeTo(2000, 500).slideUp(500, function(){$('#alert_h').slideUp(500);});</script>");
+                  } %>
+              <%if (request.getParameter("msg") != null) {
+                  out.println("<div class='alert alert-success'  id='alert_h'>");
+                  out.println(request.getParameter("msg"));
+                  out.println("</div>");
+                  out.println("<script>$('#alert_h').fadeTo(2000, 500).slideUp(500, function(){$('#alert_h').slideUp(500);});</script>");
                   } %></b>
           </div>
         <div class="col-sm-12 col-md-12">

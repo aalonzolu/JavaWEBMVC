@@ -47,6 +47,7 @@ public class ConsultasUser extends Conexion {
         Statement st = null;
         ResultSet resultSet = null;
         String resName = "";
+        int resID = 0;
         try {
             st = connection.createStatement();
             String consultaSQL = "SELECT * FROM user WHERE username='" + username + "' AND password='" + password + "';";
@@ -62,12 +63,34 @@ public class ConsultasUser extends Conexion {
                 // se encontraron registros y se setea el nombre
                 while (resultSet.next()) {
                     resName = resultSet.getString("name");
+                    resID = resultSet.getInt("id_user");
                 }
             }
             
         } catch (SQLException e) {
             System.err.println("Ha ocurrido un error: " + e.getMessage());
         }
-        return resName;
+        return resName+"__"+resID;
+    }
+    
+    public String getDato(String columna,int id){
+        Statement st = null;
+        ResultSet resultSet = null;
+        String table = "user";
+        String id_column = "id_user";
+        String resVal = null;
+        try {
+            st = connection.createStatement();
+            String consultaSQL = "SELECT "+columna+" FROM "+table+" WHERE "+id_column+"='" + id + "';";
+            // Result set get the result of the SQL query
+            resultSet = st.executeQuery(consultaSQL);
+            while (resultSet.next()) {
+                resVal = resultSet.getString(1);
+            }
+            
+        } catch (SQLException e) {
+            System.err.println("Ha ocurrido un error: " + e.getMessage());
+        }
+        return resVal;
     }
 }

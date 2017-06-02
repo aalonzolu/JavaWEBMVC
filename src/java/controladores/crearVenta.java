@@ -7,18 +7,21 @@ package controladores;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.Arrays;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelos.ConsultasVenta;
+
 /**
  *
- * @author juan
+ * @author lexo
  */
-@WebServlet(name = "nuevaVenta", urlPatterns = {"/nuevaVenta"})
-public class nuevaVenta extends HttpServlet {
+@WebServlet(name = "crearVenta", urlPatterns = {"/crearVenta"})
+public class crearVenta extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,26 +35,47 @@ public class nuevaVenta extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String correlativo = request.getParameter("correlativo");
-        String id_producto = request.getParameter("id_producto");
-        String id_bodega= request.getParameter("id_bodega");
-        String cantidad = request.getParameter("cantidad");
-        String precio_venta = request.getParameter("precio_venta");
-        String precio_compra = request.getParameter("precio_compra");
-        String id_cliente = request.getParameter("id_cliente");
-        String descuento = request.getParameter("descuento");
-        String fecha = request.getParameter("fecha");
         
-        if(!correlativo.isEmpty() && !id_producto.isEmpty() && !id_bodega.isEmpty() && !cantidad.isEmpty() && !precio_venta.isEmpty() && !precio_compra.isEmpty() && !id_cliente.isEmpty() && !descuento.isEmpty() && !fecha.isEmpty()){
-            
-                ConsultasVenta Conn = new ConsultasVenta();
-//                Conn.nuevo(correlativo, id_producto, id_bodega, cantidad, precio_venta, precio_compra, id_cliente, descuento, fecha);
-                response.sendRedirect("listadoVentas.jsp");
-            
+        
+        // datos de la venta
+        String fecha = request.getParameter("fecha");
+        String user = request.getParameter("user");
+        String cliente = request.getParameter("cliente");
+        int total_productos = 0;
+        
+        ConsultasVenta Conn = new ConsultasVenta();
+        
+        // productos como arreglos
+        String[] idProducto;
+        idProducto= request.getParameterValues("id[]");
+        String[] codigoProducto;
+        codigoProducto= request.getParameterValues("codigo[]");
+        String[] cantidadProducto;
+        cantidadProducto= request.getParameterValues("cantidad[]");
+        String[] precioCompra;
+        precioCompra = request.getParameterValues("precio_compra[]");
+        String[] precioVenta;
+        precioVenta = request.getParameterValues("precio_venta[]");
+        try{
+            total_productos = idProducto.length;
+        } catch (Exception e) {
+            System.err.println("Ha ocurrido un error: " + e.getMessage());
         }
-        else {
-            response.sendRedirect("nuevaventa.jsp?error=Llene todos los campos");
+
+        if(total_productos>0){
+            // crear venta y obtener id_venta
+            int venta_id = Conn.nuevo(fecha, user, cliente);
+            for(int i = 0; i < idProducto.length; i++)
+            {
+            System.out.println("ID: "+idProducto[i]+" Codigo: "+codigoProducto[i]+" cantidad: "+cantidadProducto[i]+" precioCompra: "+precioCompra[i]+" Venta: "+precioVenta[i]);
+            Conn.inserProducto(codigoProducto[i], idProducto[i], cantidadProducto[i], precioVenta[i], precioCompra[i], venta_id);
+            }
+            response.sendRedirect("pos.jsp?msg=Venta creada con exito");
+        }else {
+            response.sendRedirect("pos.jsp?error=Agregue por lo menos un elemento a la venta");
         }
+        
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

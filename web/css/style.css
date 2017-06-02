@@ -211,3 +211,14 @@ body.login-body {
     line-height: 1.42;
     border-radius: 28px;
 }
+
+@media print
+{    
+    .no-print, .no-print *
+    {
+        display: none !important;
+    }
+}
+label {
+        min-width: 10em !important;
+}

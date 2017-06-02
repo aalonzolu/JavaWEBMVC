@@ -67,4 +67,25 @@ public class ConsultasCliente extends Conexion{
         } 
         return filas;
     }
+    public String getDato(String columna,int id){
+        Statement st = null;
+        ResultSet resultSet = null;
+        String table = "cliente";
+        String id_column = "id_cliente";
+        String resVal = null;
+        try {
+            st = connection.createStatement();
+            String consultaSQL = "SELECT "+columna+" FROM "+table+" WHERE "+id_column+"='" + id + "';";
+            System.out.println(consultaSQL);
+            // Result set get the result of the SQL query
+            resultSet = st.executeQuery(consultaSQL);
+            while (resultSet.next()) {
+                resVal = resultSet.getString(1);
+            }
+            
+        } catch (SQLException e) {
+            System.err.println("Ha ocurrido un error: " + e.getMessage());
+        }
+        return resVal;
+    }
 }
