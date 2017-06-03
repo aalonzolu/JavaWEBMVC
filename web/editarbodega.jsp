@@ -32,10 +32,10 @@
         ResultSet bodegas = Conn.getUno(ID);
         while(bodegas.next()){ 
             
-            codigo = bodegas.getString(2);
-            nombre = bodegas.getString(3);
-            direccion = bodegas.getString(4);
-            telefono = bodegas.getString(5);
+            codigo = bodegas.getString(5);
+            nombre = bodegas.getString(2);
+            direccion = bodegas.getString(3);
+            telefono = bodegas.getString(4);
             
         } %>
   <div class="form-group">

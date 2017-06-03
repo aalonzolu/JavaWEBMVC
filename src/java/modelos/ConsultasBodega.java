@@ -66,7 +66,7 @@ public class ConsultasBodega extends Conexion  {
         } 
         return filas;
     }
-     public int actualizar(int id, String codigo,String nombre, String direccion,String telefono) {
+     public int actualizar(int idbodega, String codigo,String nombre, String direccion,String telefono) {
         int filas = 0;
         Statement st = null;
         try {
@@ -74,8 +74,7 @@ public class ConsultasBodega extends Conexion  {
             st = connection.createStatement();
             String udateSQL = "UPDATE bodega " +
                     "SET codigo = '"+codigo+"', nombre= '" + nombre + "'," +" direccion_bodega = '" + direccion + "'," 
-                    +" telefono_bodega = '" + telefono + "' " +"  WHERE id_bodega ="+id+";";
-            
+                    +" telefono_bodega = '" + telefono + "' " +"  WHERE id_bodega ="+idbodega+";";
             System.out.println(udateSQL);
             filas = st.executeUpdate(udateSQL);
         } catch (SQLException e) {
