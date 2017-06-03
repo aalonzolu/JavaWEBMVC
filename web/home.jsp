@@ -6,7 +6,7 @@
 <%@ page session="true" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file='templates/header_user.html'%>
-<h1>Bienvenido <%= session.getAttribute("name") %></h1>
+<h1>Bienvenido <%= session.getAttribute("name") %> - <%= session.getAttribute("id") %></h1>
 <div class="">
     <div class="col-md-4" style="margin-top: 2em;">
         <a type="button" class="btn btn-success btn-lg btn-block" href="pos.jsp">

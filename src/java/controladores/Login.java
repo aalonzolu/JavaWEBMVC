@@ -40,10 +40,10 @@ public class Login extends HttpServlet {
             ConsultasUser consuser = new ConsultasUser();
             // consultar si existe el usuario
             res = consuser.login(username,pass);
-            String[] parts = res.split("__");
-            String part1 = parts[0]; // 004
-            String part2 = parts[1]; // 034556
-            if(res != ""){
+            if(!res.isEmpty()){
+                String[] parts = res.split("__");
+                String part1 = parts[0]; // 004
+                String part2 = parts[1]; // 034556
                 HttpSession session=request.getSession();  
                 session.setAttribute("name",part1);
                 session.setAttribute("id",part2);

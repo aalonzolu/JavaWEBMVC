@@ -70,7 +70,13 @@ public class ConsultasUser extends Conexion {
         } catch (SQLException e) {
             System.err.println("Ha ocurrido un error: " + e.getMessage());
         }
-        return resName+"__"+resID;
+        if(resID>0){
+            return resName+"__"+resID;
+        }
+        else {
+            return "";
+        }
+        
     }
     
     public String getDato(String columna,int id){

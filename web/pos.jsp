@@ -64,7 +64,7 @@
                                                         <div class="form-group">
                                                             <label for="fecha">Fecha</label>
                                                             <input type="datetime" class="form-control" id="fecha" name='fecha' value="<%=currentTime%>" readonly>
-                                                            <input type="hidden" name="user" value="<%= session.getAttribute(" id ") %>">
+                                                            <input type="hidden" name="user" value="<%= session.getAttribute("id") %>">
                                                         </div>
                                                     </div>
                                                     <div class="col col-md-5">
